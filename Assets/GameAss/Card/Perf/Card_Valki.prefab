@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -7238551997015213975}
   - component: {fileID: -4351371457286505323}
   - component: {fileID: 3729825057740163339}
+  - component: {fileID: -6770974828137658873}
+  - component: {fileID: 523880325334505506}
   m_Layer: 0
   m_Name: Card_Valki
   m_TagString: Untagged
@@ -124,7 +126,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -230,11 +232,36 @@ MonoBehaviour:
   cardScore: 1000
   cardSprite: {fileID: 21300000, guid: edd2d84d92c2f4648a1aba1f07ada051, type: 3}
   cardName: valkyrie
-  cardDescription: "\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E01\u0E14\u0E43\u0E0A\u0E49
-    \u0E08\u0E30\u0E44\u0E14\u0E49\u0E41\u0E15\u0E49\u0E21 1000"
+  cardDescription: Gain 1000 points
   owner: {fileID: 0}
   selectOffset: 0.5
   isSelected: 0
+--- !u!114 &-6770974828137658873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175112090989026837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31aced904a1b3284997b6c0238ef895b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupSound: {fileID: 0}
+  useSound: {fileID: 0}
+--- !u!114 &523880325334505506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175112090989026837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70baf79ae8ae89e42b7a3ecccdec11ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5587704849661428717
 PrefabInstance:
   m_ObjectHideFlags: 0

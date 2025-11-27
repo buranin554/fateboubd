@@ -4855,6 +4855,8 @@ GameObject:
   - component: {fileID: -6627929573897481698}
   - component: {fileID: 2281024336305472461}
   - component: {fileID: -5791782725374615879}
+  - component: {fileID: 3223993963435095628}
+  - component: {fileID: 3661967479405874796}
   m_Layer: 0
   m_Name: Card_Phoenix
   m_TagString: Untagged
@@ -4976,9 +4978,8 @@ MonoBehaviour:
   cardScore: 0
   cardSprite: {fileID: 21300000, guid: 32eb383e98208364f8c18e2dfa21a7ec, type: 3}
   cardName: Phoenix
-  cardDescription: "\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E01\u0E14\u0E43\u0E0A\u0E49
-    \u0E08\u0E30\u0E40\u0E1C\u0E32\u0E01\u0E32\u0E23\u0E4C\u0E14\u0E43\u0E19\u0E21\u0E37\u0E2D\u0E17\u0E31\u0E49\u0E07\u0E2B\u0E21\u0E14\u0E41\u0E25\u0E30\u0E1E\u0E23\u0E49\u0E2D\u0E21\u0E08\u0E31\u0E48\u0E27\u0E43\u0E2B\u0E21\u0E48
-    2 \u0E40\u0E17\u0E48\u0E32\u0E08\u0E33\u0E19\u0E27\u0E19\u0E17\u0E35\u0E48\u0E40\u0E1C\u0E32\u0E44\u0E1B"
+  cardDescription: Burn all cards in your hand and draw twice the number of cards
+    burned
   owner: {fileID: 0}
   selectOffset: 0.5
   isSelected: 0
@@ -4994,7 +4995,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5079,6 +5080,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3223993963435095628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146142395194066433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31aced904a1b3284997b6c0238ef895b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupSound: {fileID: 0}
+  useSound: {fileID: 0}
+--- !u!114 &3661967479405874796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146142395194066433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70baf79ae8ae89e42b7a3ecccdec11ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4512983814179927043
 PrefabInstance:
   m_ObjectHideFlags: 0

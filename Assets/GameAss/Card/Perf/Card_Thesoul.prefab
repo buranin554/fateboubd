@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 8621192797923233501}
   - component: {fileID: 841084116360795495}
   - component: {fileID: 2454511393124887851}
+  - component: {fileID: -6352256698232092248}
+  - component: {fileID: 135522188346899519}
+  - component: {fileID: -3125703815814431143}
   m_Layer: 0
   m_Name: Card_Thesoul
   m_TagString: Untagged
@@ -132,6 +135,9 @@ MonoBehaviour:
   glowEffect: {fileID: 0}
   selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   cardScore: 100
+  cardSprite: {fileID: 0}
+  cardName: Unknown Card
+  cardDescription: "\u0E23\u0E32\u0E22\u0E25\u0E30\u0E40\u0E2D\u0E35\u0E22\u0E14\u0E02\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E4C\u0E14\u0E19\u0E35\u0E49"
   owner: {fileID: 0}
   selectOffset: 0.5
   isSelected: 0
@@ -150,7 +156,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -232,6 +238,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6352256698232092248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910150978105892207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d8f45a6e77704aa822ba09d8194dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  cardImage: {fileID: 21300000, guid: 2fd7654a5a691ab48a6739f6557d4acf, type: 3}
+  description: 
+--- !u!114 &135522188346899519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910150978105892207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31aced904a1b3284997b6c0238ef895b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupSound: {fileID: 8300000, guid: 5b604e5d90dc4344dae591bb7149bb62, type: 3}
+  useSound: {fileID: 0}
+--- !u!114 &-3125703815814431143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910150978105892207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dac4281ddcf69a48a57e0631ad31e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSound: {fileID: 1476770359064150254, guid: 6df90d3ebede69f43ae99893a4bf418b, type: 3}
+  popupPanel: {fileID: 0}
 --- !u!1001 &448579618487047018
 PrefabInstance:
   m_ObjectHideFlags: 0

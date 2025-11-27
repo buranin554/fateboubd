@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -4074396543855815868}
   - component: {fileID: -2465111986491009715}
   - component: {fileID: 8089918834677714748}
+  - component: {fileID: -8522953263642404665}
+  - component: {fileID: 5253333635933334082}
   m_Layer: 0
   m_Name: Card_Loki
   m_TagString: Untagged
@@ -125,7 +127,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -229,9 +231,38 @@ MonoBehaviour:
   glowEffect: {fileID: 0}
   selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   cardScore: 100
+  cardSprite: {fileID: 21300000, guid: 4a01a9187644bf84e920fe000f59da3c, type: 3}
+  cardName: Loki
+  cardDescription: Draw 4 cards instead of 2 for the next 2 turns
   owner: {fileID: 0}
   selectOffset: 0.5
   isSelected: 0
+--- !u!114 &-8522953263642404665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941205325594166035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31aced904a1b3284997b6c0238ef895b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupSound: {fileID: 0}
+  useSound: {fileID: 0}
+--- !u!114 &5253333635933334082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941205325594166035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70baf79ae8ae89e42b7a3ecccdec11ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8851743858667832192
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,10 +4,21 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("End Game UI")]
+    public GameObject endGamePanel;
+    public TextMeshProUGUI endGameText;   // ถ้ามีข้อความว่า WIN / LOSE
+
+
     [Header("UI Elements")]
     public TextMeshProUGUI deckCountText;
     public TextMeshProUGUI turnText;
     public TextMeshProUGUI scoreText;
+
+    [Header("Special Card Effects")]
+    public bool SkipNextTurn = false;
+
+    public int limitedHandTurns = 0;   // จำนวนเทิร์นที่จำกัดจำนวนไพ่บนมือ
+    public int handLimit = 12;         // ค่าปกติ
 
     [Header("Card Button")]
     public Button cardButton;
@@ -79,7 +90,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("หลังจั่ว: Deck=" + cardDrawSystem.deck.Count + " Turn=" + currentTurn);
     }
 
-    // ---------- คะแนน (รองรับ Athena x2) ----------
     public void AddScore(int amount)
     {
         int finalScore = amount * scoreMultiplier;
@@ -87,9 +97,10 @@ public class GameManager : MonoBehaviour
         if (currentScore > targetScore) currentScore = targetScore;
 
         Debug.Log($"AddScore: {amount} x{scoreMultiplier} = {finalScore} (total {currentScore})");
+
         UpdateUI();
+        CheckEndGame();        // ⭐ เพิ่มบรรทัดนี้
     }
-    // ------------------------------------------------
 
     public void UpdateUI()
     {
@@ -107,8 +118,12 @@ public class GameManager : MonoBehaviour
     {
         currentTurn++;
         if (currentTurn > maxTurns) currentTurn = maxTurns;
+
         Debug.Log("Turn: " + currentTurn);
+
+        CheckEndGame();        // ⭐ เพิ่มบรรทัดนี้
     }
+
 
     // ============== Buff / Debuff API (เรียกจากการ์ด) ==============
 
@@ -139,7 +154,7 @@ public class GameManager : MonoBehaviour
     // เรียกทุกครั้งที่จบเทิร์น (หลัง NextTurn)
     public void OnTurnEnd()
     {
-        // นับถอยหลังบัฟจั่ว
+        // นับถอยหลังบัฟจั่วเพิ่ม (Loki)
         if (drawBonusTurns > 0)
         {
             drawBonusTurns--;
@@ -150,7 +165,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // นับถอยหลังตัวคูณคะแนน
+        // นับถอยหลังตัวคูณคะแนน (Athena)
         if (scoreMultTurns > 0)
         {
             scoreMultTurns--;
@@ -160,7 +175,20 @@ public class GameManager : MonoBehaviour
                 Debug.Log("[BUFF] Score multiplier expired.");
             }
         }
+
+        // นับถอยหลัง BoundFiend (จำกัดมือ 5 ใบ)
+        if (limitedHandTurns > 0)
+        {
+            limitedHandTurns--;
+
+            if (limitedHandTurns == 0)
+            {
+                handLimit = 12; // คืนค่า default
+                Debug.Log("[DEBUFF END] Hand size limit restored.");
+            }
+        }
     }
+
 
     // จำนวนจั่วต่อเทิร์น (รวมบัฟ)
     private int GetCurrentDrawPerTurn()
@@ -173,5 +201,36 @@ public class GameManager : MonoBehaviour
         if (currentTurn < 0) currentTurn = 0; // ป้องกันติดลบ
         UpdateUI();
     }
+
+    private void CheckEndGame()
+    {
+        // ชนะเพราะแต้มถึงก่อน
+        if (currentScore >= targetScore)
+        {
+            EndGame(true);
+            return;
+        }
+
+        // แพ้เพราะเทิร์นครบก่อน
+        if (currentTurn >= maxTurns)
+        {
+            EndGame(false);
+            return;
+        }
+    }
+
+    private void EndGame(bool win)
+    {
+        Debug.Log("=== GAME END === Result = " + (win ? "WIN" : "LOSE"));
+
+        Time.timeScale = 0f; // หยุดเกม
+
+        if (endGamePanel != null)
+            endGamePanel.SetActive(true);
+
+        if (endGameText != null)
+            endGameText.text = win ? "YOU WIN!" : "GAME OVER!";
+    }
+
 
 }

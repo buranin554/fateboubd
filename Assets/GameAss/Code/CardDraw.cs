@@ -39,12 +39,20 @@ public class CardDrawSystem : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            if (deck.Count == 0 || hand.Count >= maxHandSize) break;
+            int limit = (gameManager.limitedHandTurns > 0)
+                ? gameManager.handLimit
+                : maxHandSize;
+
+            if (deck.Count == 0 || hand.Count >= limit)
+                break;
 
             GameObject cardToDraw = deck[0];
             deck.RemoveAt(0);
 
-            GameObject newCard = Instantiate(cardToDraw, handSlots[hand.Count].position, handSlots[hand.Count].rotation);
+            GameObject newCard = Instantiate(cardToDraw,
+                handSlots[hand.Count].position,
+                handSlots[hand.Count].rotation);
+
             newCard.transform.SetParent(handSlots[hand.Count], false);
 
             CardSelectable selectable = newCard.GetComponent<CardSelectable>();
@@ -53,11 +61,20 @@ public class CardDrawSystem : MonoBehaviour
             selectable.owner = this;
             selectable.UpdateOriginalPosition(handSlots[hand.Count].position);
 
+            // ถ้าเป็นการ์ดพิเศษ ใช้แล้วลบ ไม่ต้องเก็บในมือ
+            CardSpecialEffect special = newCard.GetComponent<CardSpecialEffect>();
+            if (special != null)
+            {
+                special.ActivateEffect();
+                continue; // ← ไม่ใส่มือ
+            }
+
             hand.Add(selectable);
         }
-       
+
         ReorderHand();
     }
+
 
     public void ReorderHand()
     {

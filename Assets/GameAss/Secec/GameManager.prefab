@@ -18,21 +18,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4994871113025430525
-Transform:
+--- !u!224 &4994871113025430525
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3929387218978149058}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 181.64755, y: 762.8213, z: 1276.7935}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &4599829801388233967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,13 +52,16 @@ MonoBehaviour:
   deckCountText: {fileID: 0}
   turnText: {fileID: 0}
   scoreText: {fileID: 0}
+  SkipNextTurn: 0
+  limitedHandTurns: 0
+  handLimit: 12
   cardButton: {fileID: 0}
-  deckCount: 62
   maxTurns: 10
   currentTurn: 0
   currentScore: 0
   targetScore: 5000
   drawPerTurn: 2
+  cardDrawSystem: {fileID: 0}
 --- !u!114 &1501968651218189226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,8 +76,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 0}
   handSlots: []
+  cardPrefab2: {fileID: 0}
   deck: []
-  hand: []
+  startHand: 7
   maxHandSize: 12
-  startDrawAmount: 7
-  drawPerTurn: 2
+  gameManager: {fileID: 0}
+  handCards: []
